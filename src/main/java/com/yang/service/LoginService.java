@@ -18,7 +18,7 @@ public class LoginService {
     }
 
     @Autowired
-    public void setUserDao(AdminDao adminDao) {
+    public void setAdminDao(AdminDao adminDao) {
         this.adminDao = adminDao;
     }
 }
