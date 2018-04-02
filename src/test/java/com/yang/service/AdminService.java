@@ -13,7 +13,7 @@ public class AdminService extends AbstractTransactionalTestNGSpringContextTests 
 
     @Test
     public void testAdminLogin() {
-        boolean b1 = loginService.hasMatchUser(20170001,"111111");
+        boolean b1 = loginService.hasMatchAdmin(20170001,"111111");
         assertTrue(b1);
     }
 }

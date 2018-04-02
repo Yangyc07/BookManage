@@ -1,6 +1,7 @@
 package com.yang.service;
 
 import com.yang.dao.AdminDao;
+import com.yang.domain.Admin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -8,7 +9,7 @@ import org.springframework.stereotype.Service;
 public class LoginService {
     private AdminDao adminDao;
 
-    public boolean hasMatchUser(int admin_id, String password) {
+    public boolean hasMatchAdmin(int admin_id, String password) {
         int matchCount = adminDao.getMatchCount(admin_id, password);
         return matchCount > 0;
     }

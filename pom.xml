@@ -90,7 +90,7 @@
               <maxIdleTime>60000</maxIdleTime>
             </connector>
           </connectors>
-          <contextPath>/bbs</contextPath>
+          <contextPath>/book</contextPath>
           <scanIntervalSeconds>0</scanIntervalSeconds>
         </configuration>
       </plugin>

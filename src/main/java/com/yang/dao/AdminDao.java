@@ -13,6 +13,8 @@ public class AdminDao {
             " admin_id = ? and password = ? ";
     private final static String RE_PASSWORD_SQL="UPDATE admin set password = ? where admin_id = ? ";
 
+
+
     //查询登陆信息;
     public int getMatchCount(int admin_id, String password) {
         return jdbcTemplate.queryForObject(MATCH_COUNT_SQL, new Object[]{admin_id, password}, Integer.class);
