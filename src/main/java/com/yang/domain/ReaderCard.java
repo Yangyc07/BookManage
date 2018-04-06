@@ -31,11 +31,11 @@ public class ReaderCard {
         this.password = password;
     }
 
-    public int getCarState() {
+    public int getCardState() {
         return cardState;
     }
 
-    public void setCarState(int carState) {
+    public void setCardState(int carState) {
         this.cardState = carState;
     }
 }

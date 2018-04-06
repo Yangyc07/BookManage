@@ -6,23 +6,24 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.stereotype.Repository;
 
-import java.io.Reader;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
 
-/*
-实现对用户信息的增删查改
- */
 @Repository
 public class ReaderDao {
     private JdbcTemplate jdbcTemplate;
 
+    @Autowired
+    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
+        this.jdbcTemplate = jdbcTemplate;
+    }
+
     private final static String ADD_READER_INFO_SQL="INSERT INTO reader_info Values(?,?,?,?,?,?)";
-    private final static String DELETE_READER_INFO_SQL="DELETE FORM reader_info WHERE reader_id = ?";
-    private final static String GET_READER_INFO_SQL="SELECT FORM reader_info WHERE reader_id = ?";
-    private final static String GET_ALL_READER_INFO_SQL="SELECT *FORM reader_info";
+    private final static String DELETE_READER_INFO_SQL="DELETE FROM reader_info WHERE reader_id = ?";
+    private final static String GET_READER_INFO_SQL="SELECT FROM reader_info WHERE reader_id = ?";
+    private final static String GET_ALL_READER_INFO_SQL="SELECT *FROM reader_info";
 
 
     public  int addReaderInfo(ReaderInfo readerInfo){
@@ -30,10 +31,10 @@ public class ReaderDao {
         String name = readerInfo.getName();
         String sex = readerInfo.getSex();
         String address = readerInfo.getAddress();
-        String telcode = readerInfo.getTelcode();
+        String telCode = readerInfo.getTelcode();
         Date   birth = readerInfo.getBirth();
 
-        return jdbcTemplate.update(ADD_READER_INFO_SQL,new Object[]{readerId,name,sex,birth,address,telcode});
+        return jdbcTemplate.update(ADD_READER_INFO_SQL,new Object[]{readerId,name,sex,birth,address,telCode});
     }
 
     public int deleteReaderInfo(int readerId){
@@ -73,9 +74,5 @@ public class ReaderDao {
             }
         });
         return  readers;
-    }
-    @Autowired
-    public void setJdbcTemplate(JdbcTemplate jdbcTemplate) {
-        this.jdbcTemplate = jdbcTemplate;
     }
 }

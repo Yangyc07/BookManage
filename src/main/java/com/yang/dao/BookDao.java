@@ -21,8 +21,9 @@ public class BookDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+
     private final static String ADD_BOOK_SQL="INSERT INTO book_info VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
-    private final static String DELETE_BOOK_SQL="DELETE FORM book_info WHERE book_id = ?";
+    private final static String DELETE_BOOK_SQL= "DELETE FROM  book_info WHERE book_id = ?";
     private final static String QUERY_BOOK_SQL="SELECT * FROM book_info WHERE book_id like  ?  or name like ?";
     private final static String QUERY_ALL_BOOKS_SQL="SELECT * FROM book_info ";
 

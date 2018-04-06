@@ -58,4 +58,18 @@ public class ReaderInfo {
     public void setTelcode(String telcode) {
         this.telcode = telcode;
     }
+
+    public ReaderInfo() {
+
+    }
+
+    public ReaderInfo(int readerId, String name, String sex, Date birth, String address, String telcode) {
+        this.readerId = readerId;
+        this.name = name;
+        this.sex = sex;
+        this.birth = birth;
+        this.address = address;
+        this.telcode = telcode;
+    }
+
 }
