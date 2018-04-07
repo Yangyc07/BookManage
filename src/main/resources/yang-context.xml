@@ -20,28 +20,11 @@
     <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource"
           destroy-method="close"
           p:driverClassName="com.mysql.jdbc.Driver"
-          p:url="jdbc:mysql://localhost:3306/book"
+          p:url="jdbc:mysql://localhost:3306/book?characterEncoding=UTF-8"
           p:username="root"
           p:password="admin" />
 
     <!-- 配置Jdbc模板  -->
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate"
           p:dataSource-ref="dataSource" />
-
-    <!-- 配置事务管理器 -->
-    <bean id="transactionManager"
-          class="org.springframework.jdbc.datasource.DataSourceTransactionManager"
-          p:dataSource-ref="dataSource" />
-
-    <!-- 通过AOP配置提供事务增强，让service包下所有Bean的所有方法拥有事务 -->
-    <aop:config proxy-target-class="true">
-        <aop:pointcut id="serviceMethod"
-                      expression="(execution(* com.yang.service..*(..))) and (@annotation(org.springframework.transaction.annotation.Transactional))" />
-        <aop:advisor pointcut-ref="serviceMethod" advice-ref="txAdvice" />
-    </aop:config>
-    <tx:advice id="txAdvice" transaction-manager="transactionManager">
-        <tx:attributes>
-            <tx:method name="*" />
-        </tx:attributes>
-    </tx:advice>
 </beans>

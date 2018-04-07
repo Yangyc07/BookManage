@@ -38,17 +38,17 @@ public class AdminService extends AbstractTransactionalTestNGSpringContextTests 
     }
 
     @Test
-    public void testReaderCarServie(){
+    public void testReaderCardService(){
         ReaderInfo readerInfo=new ReaderInfo(150101410,"杨亚宸","男",new Date(1992-03-21) ,"湖北荆州","18772812230");
         boolean b1=readerCardService.addReaderCard(readerInfo);
     }
 
     @Test
     public void testReaderService(){
-//        ReaderInfo readerInfo=new ReaderInfo(1501014109,"杨亚宸","男",new Date(1992-03-21) ,"湖北荆州","18772812230");
-//        boolean b1=readerInfoService.deleteReaderInfo(1501014101);
-//        readerInfoService.addReaderInfo(readerInfo);
-//        System.out.print(b1);
+        ReaderInfo readerInfo=new ReaderInfo(1501014109,"杨亚宸","男",new Date(1992-03-21) ,"湖北荆州","18772812230");
+        boolean b1=readerInfoService.deleteReaderInfo(1501014101);
+        readerInfoService.addReaderInfo(readerInfo);
+        System.out.print(b1);
 
         ArrayList<ReaderInfo> readerInfos=readerInfoService.getAllReaders();
         for(int i = 0; i<readerInfos.size(); i++){
