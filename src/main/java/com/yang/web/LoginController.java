@@ -26,10 +26,9 @@ public class LoginController {
 
     @RequestMapping(value = "/loginCheck.html")
     public ModelAndView loginCheck(HttpServletRequest request) {
-        //int id=Integer.valueOf(request.getParameter("id"));
-        int id=20170001;
+        int id=Integer.parseInt(request.getParameter("id"));
+        System.out.print(id);
         String password=request.getParameter("password");
-        System.out.print(password);
         boolean isValidUser = loginService.hasMatchAdmin(id,password);
         if (!isValidUser) {
             return new ModelAndView("login", "error", "用户名或密码错误。");
