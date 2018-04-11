@@ -13,6 +13,15 @@
     <title>全部读者</title>
 </head>
 <body>
+<c:if test="${!empty error}">
+<div class="alert alert-success alert-dismissable">
+    <button type="button" class="close" data-dismiss="alert"
+            aria-hidden="true">
+        &times;
+    </button>
+      ${b2}
+</div>
+</c:if>
     <table class="table  table-hover" >
         <thead>
         <tr>
@@ -35,8 +44,8 @@
                     <td>${reader.birth}</td>
                     <td>${reader.address}</td>
                     <td>${reader.telcode}</td>
-                    <td><a href="reader_edit.html?readerId="${reader.readerId}"><button type="button" class="btn btn-info btn-xs">编辑</button></td>
-                    <td><a href="reader_delete.html?readerId="${reader.readerId}"><button type="button" class="btn btn-info btn-xs">删除</button></td>
+                    <td><a href="reader_edit.html?readerId=${reader.readerId}"></a><button type="button" class="btn btn-info btn-xs">编辑</button></td>
+                    <td><a href="reader_delete.html?readerId=${reader.readerId}"></a><button type="button" class="btn btn-info btn-xs">删除</button></td>
                 </tr>
             </c:forEach>
         </tbody>
