@@ -22,7 +22,7 @@ public class ReaderDao {
 
     private final static String ADD_READER_INFO_SQL="INSERT INTO reader_info Values(?,?,?,?,?,?)";
     private final static String DELETE_READER_INFO_SQL="DELETE FROM reader_info WHERE reader_id = ?";
-    private final static String GET_READER_INFO_SQL="SELECT FROM reader_info WHERE reader_id = ?";
+    private final static String GET_READER_INFO_SQL="SELECT *FROM reader_info WHERE reader_id = ?";
     private final static String GET_ALL_READER_INFO_SQL="SELECT *FROM reader_info";
 
 

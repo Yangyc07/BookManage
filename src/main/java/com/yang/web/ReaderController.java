@@ -87,9 +87,16 @@ public class ReaderController {
            redirectAttributes.addFlashAttribute("b2", "删除成功！");
            return "redirect:/admin_all_reader.html";
        }else {
-           redirectAttributes.addFlashAttribute("error", "删除失败！");
+           redirectAttributes.addFlashAttribute("b2", "删除失败！");
            return "redirect:/admin_all_reader.html";
        }
    }
-
+    @RequestMapping("admin_edit_reader.html")
+    public ModelAndView editReader(HttpServletRequest request){
+        int readerId=Integer.parseInt(request.getParameter("readerId"));
+        ReaderInfo readerInfo=readerInfoService.getReaderInfo(readerId);
+        ModelAndView modelAndView = new ModelAndView("admin_edit_reader");
+        modelAndView.addObject("readerInfo",readerInfo);
+        return modelAndView;
+    }
 }

@@ -37,7 +37,7 @@
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="admin_add_book.html">增加图书</a></li>
-                            <li><a href="admin_all_book.html">全部图书</a></li>
+                            <li><a href="all_books.html">全部图书</a></li>
                         </ul>
                     </li>
                     <li class="dropdown">

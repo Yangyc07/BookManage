@@ -20,8 +20,8 @@ public class BookService {
         return bookDao.addBook(book)>0;
     }
 
-    public int deleteBook(Long bookId){
-        return  bookDao.deleteBook(bookId);
+    public boolean deleteBook(Long bookId){
+        return  bookDao.deleteBook(bookId)>0;
     }
 
     public ArrayList<Book> queryBook(String searchWord){
