@@ -22,10 +22,17 @@ public class AdminService extends AbstractTransactionalTestNGSpringContextTests 
     private ReaderInfoService readerInfoService;
     @Autowired
     private ReaderCardService readerCardService;
+    @Autowired
+    private LendService lendService;
 
     @Test
     public void testAdminLogin() {
         boolean b1 = loginService.hasMatchAdmin(2017001,"111111");
+        assertTrue(b1);
+    }
+    @Test
+    public void testLend() {
+        boolean b1=lendService.returnBook(50000004);
         assertTrue(b1);
     }
 

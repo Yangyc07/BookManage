@@ -13,14 +13,14 @@
     <title>全部图书</title>
 </head>
 <body>
-<c:if test="${!empty error}">
-    <div class="alert alert-success alert-dismissable">
-        <button type="button" class="close" data-dismiss="alert"
-                aria-hidden="true">
+<c:if test="${!empty success}">
+    <div class="alert alert-warning">
+        <a href="#" class="close" data-dismiss="alert">
             &times;
-        </button>
-            ${b2}
+        </a>
+        ${success}
     </div>
+
 </c:if>
 <table class="table  table-hover" >
     <thead>
@@ -43,7 +43,38 @@
             <td>${book.publish}</td>
             <td>${book.isbn}</td>
             <td>${book.price}</td>
-            <td>${book.state}</td>
+            <c:if test="${book.state==1}">
+                <td><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">借出</button></td>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <form action="lend_book.html">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                                <h4 class="modal-title" id="myModalLabel">借出图书</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <span class="input-group-addon">图书号</span>
+                                    <input type="text" class="form-control" name="bookId" value="${book.book_id}">
+                                </div>
+                                <div class="form-group">
+                                    <span class="input-group-addon">请输入读者号</span>
+                                    <input type="text" class="form-control" name="readerId" id="readerId">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                <input type="submit" class="btn btn-primary" value="借"></input>
+                            </div>
+                        </div><!-- /.modal-content -->
+                    </div><!-- /.modal -->
+                    </form>
+                </div>
+            </c:if>
+            <c:if test="${book.state==0}">
+                <td><a href="return_book.html?bookId=${book.book_id}"><button type="button" class="btn btn-info btn-xs" >归还</button></a> </td>
+            </c:if>
             <td><a href="update_book.html?bookId=${book.book_id}"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
             <td><a href="delete_book.html?bookId=${book.book_id}"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
         </tr>

@@ -41,8 +41,8 @@ public class LendDao {
     public int returnBookTwo(long bookId){
         return jdbcTemplate.update(RETURN_BOOK_SQL_TWO,bookId);
     }
-    public int lendBookOne(long boooId , long readId){
-        return jdbcTemplate.update(LEND_BOOK_SQL_ONE,new Object[]{boooId,readId, df.format(new Date())});
+    public int lendBookOne(long bookId , int readerId){
+        return jdbcTemplate.update(LEND_BOOK_SQL_ONE,new Object[]{bookId,readerId, df.format(new Date())});
     }
     public int lendBookTwo(long bookId){
         return jdbcTemplate.update(LEND_BOOK_SQL_TWO,bookId);

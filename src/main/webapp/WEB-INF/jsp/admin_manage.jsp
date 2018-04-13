@@ -45,7 +45,7 @@
                             借阅管理<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="admin_all_lendlist.html">全部借阅</a></li>
+                            <li><a href="all_lend_list.html">全部借阅</a></li>
                         </ul>
                     </li>
                 </ul>

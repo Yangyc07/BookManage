@@ -24,7 +24,7 @@
             <div class="panel-body">
                 <div class="input-group">
                     <span class="input-group-addon">读者号</span>
-                    <input type="text" class="form-control" name="readerId" value="${readerInfo.readerId}">
+                    <input type="text" class="form-control" name="readerId" readonly value="${readerInfo.readerId}">
                 </div>
                 <br>
 
