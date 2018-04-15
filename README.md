@@ -1,4 +1,8 @@
 # BookManage
+
+按照这个项目进行实现
+https://github.com/withstars/Books-Management-System
+
 图书管理
 
 2018 4.2
