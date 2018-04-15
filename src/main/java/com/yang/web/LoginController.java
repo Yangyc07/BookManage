@@ -26,10 +26,10 @@ public class LoginController {
 
     @RequestMapping(value = "/loginCheck.html")
     public ModelAndView loginCheck(HttpServletRequest request) {
-        int id=Integer.parseInt(request.getParameter("id"));
+        int id = Integer.parseInt(request.getParameter("id"));
         System.out.print(id);
-        String password=request.getParameter("password");
-        boolean isValidUser = loginService.hasMatchAdmin(id,password);
+        String password = request.getParameter("password");
+        boolean isValidUser = loginService.hasMatchAdmin(id, password);
         if (!isValidUser) {
             return new ModelAndView("login", "error", "用户名或密码错误。");
         } else {
@@ -40,6 +40,7 @@ public class LoginController {
             return new ModelAndView("admin_manage");
         }
     }
+
     @Autowired
     public void setUserService(LoginService loginService) {
         this.loginService = loginService;

@@ -24,7 +24,7 @@ public class LendDao {
 
     //还书，首先对lendlist进行操作，然后对图书信息进行操作
     private static final String RETURN_BOOK_SQL_ONE="UPDATE lend_list SET back_date = ? " +
-            "WHERE book_id = ? AND back_date = null  ";
+            "WHERE book_id = ? AND back_date is NULL  ";
     private static final String RETURN_BOOK_SQL_TWO="UPDATE book_info SET state=1 where book_id = ?";
 
     //借书 将图书信息插入lend_list ,然后设置图书状态

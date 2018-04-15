@@ -5,7 +5,7 @@
   Time: 18:41
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8"  %>
+<%@ page contentType="text/html;charset=UTF-8" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <html>
 <head>
@@ -36,7 +36,6 @@
                             图书管理<b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a href="admin_add_book.html">增加图书</a></li>
                             <li><a href="all_books.html">全部图书</a></li>
                         </ul>
                     </li>
@@ -50,7 +49,8 @@
                     </li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="login.html"><span class="glyphicon glyphicon-user"></span>&nbsp;${admin.adminId}，已登录</a></li>
+                    <li><a href="login.html"><span
+                            class="glyphicon glyphicon-user"></span>&nbsp;${admin.adminId}，已登录</a></li>
                     <li><a href="logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
                 </ul>
             </div>

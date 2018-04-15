@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="admin_manage.jsp"%>
+<%@include file="admin_manage.jsp" %>
 <html>
 <head>
     <title>全部借阅</title>
@@ -22,7 +22,7 @@
             ${b2}
     </div>
 </c:if>
-<table class="table  table-hover" >
+<table class="table  table-hover">
     <thead>
     <tr>
         <th>流水号</th>

@@ -15,25 +15,23 @@ public class ReaderCardDao {
     private JdbcTemplate jdbcTemplate;
 
 
-
-    private final static String FIND_READER_BY_USERID="select reader_id, name, password, card_state from reader_card where reader_id = ? ";
-    private final static String MACTCH_COUNT_SQL="select count(*) from reader_card where reader_id = ? and password = ? ";
-    private final static String ADD_READERCARD_SQL="INSERT INTO reader_card (reader_id,name) VALUES(?,?) ";
-
+    private final static String FIND_READER_BY_USERID = "select reader_id, name, password, card_state from reader_card where reader_id = ? ";
+    private final static String MACTCH_COUNT_SQL = "select count(*) from reader_card where reader_id = ? and password = ? ";
+    private final static String ADD_READERCARD_SQL = "INSERT INTO reader_card (reader_id,name) VALUES(?,?) ";
 
 
-    public int getMatchCount(int readId,String password){
-        return jdbcTemplate.queryForObject(MACTCH_COUNT_SQL,new Object[]{readId,password},Integer.class);
+    public int getMatchCount(int readId, String password) {
+        return jdbcTemplate.queryForObject(MACTCH_COUNT_SQL, new Object[]{readId, password}, Integer.class);
     }
 
-    public int addReaderCard(ReaderInfo readerInfo){
-        int Id=readerInfo.getReaderId();
-        String name=readerInfo.getName();
-        return jdbcTemplate.update(ADD_READERCARD_SQL,new Object[]{Id,name});
+    public int addReaderCard(ReaderInfo readerInfo) {
+        int Id = readerInfo.getReaderId();
+        String name = readerInfo.getName();
+        return jdbcTemplate.update(ADD_READERCARD_SQL, new Object[]{Id, name});
     }
 
-    public ReaderCard findReaderByReaderId(int userId){
-        final ReaderCard readerCard=new ReaderCard();
+    public ReaderCard findReaderByReaderId(int userId) {
+        final ReaderCard readerCard = new ReaderCard();
         jdbcTemplate.query(FIND_READER_BY_USERID, new Object[]{userId},
                 //匿名类实现的回调函数
                 new RowCallbackHandler() {

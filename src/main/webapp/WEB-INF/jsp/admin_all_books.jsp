@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="admin_manage.jsp"%>
+<%@include file="admin_manage.jsp" %>
 <html>
 <head>
     <title>全部图书</title>
@@ -18,11 +18,11 @@
         <a href="#" class="close" data-dismiss="alert">
             &times;
         </a>
-        ${success}
+            ${success}
     </div>
 
 </c:if>
-<table class="table  table-hover" >
+<table class="table  table-hover">
     <thead>
     <tr>
         <th>书名</th>
@@ -44,39 +44,58 @@
             <td>${book.isbn}</td>
             <td>${book.price}</td>
             <c:if test="${book.state==1}">
-                <td><button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">借出</button></td>
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <td>
+                    <button type="button" class="btn btn-info btn-xs" data-toggle="modal" data-target="#myModal">借出
+                    </button>
+                </td>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+                     aria-hidden="true">
                     <form action="lend_book.html">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                <h4 class="modal-title" id="myModalLabel">借出图书</h4>
-                            </div>
-                            <div class="modal-body">
-                                <div class="form-group">
-                                    <span class="input-group-addon">图书号</span>
-                                    <input type="text" class="form-control" name="bookId" value="${book.book_id}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                                        &times;
+                                    </button>
+                                    <h4 class="modal-title" id="myModalLabel">借出图书</h4>
                                 </div>
-                                <div class="form-group">
-                                    <span class="input-group-addon">请输入读者号</span>
-                                    <input type="text" class="form-control" name="readerId" id="readerId">
+                                <div class="modal-body" style="height:130px">
+
+                                    <div class="form-group">
+                                        <label for="bookId" class="col-sm-2 control-label">图书号</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="bookId" readonly
+                                                   value="${book.book_id}">
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="readerId" class="col-sm-2 control-label">读者号</label>
+                                        <div class="col-sm-10">
+                                            <input type="text" class="form-control" id="readerId">
+                                        </div>
+                                    </div>
+                                    <br>
                                 </div>
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
-                                <input type="submit" class="btn btn-primary" value="借"></input>
-                            </div>
-                        </div><!-- /.modal-content -->
-                    </div><!-- /.modal -->
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                                    <input type="submit" class="btn btn-primary" value="借出"></input>
+                                </div>
+                            </div><!-- /.modal-content -->
+                        </div><!-- /.modal -->
                     </form>
                 </div>
             </c:if>
             <c:if test="${book.state==0}">
-                <td><a href="return_book.html?bookId=${book.book_id}"><button type="button" class="btn btn-info btn-xs" >归还</button></a> </td>
+                <td><a href="return_book.html?bookId=${book.book_id}">
+                    <button type="button" class="btn btn-info btn-xs">归还</button>
+                </a></td>
             </c:if>
-            <td><a href="update_book.html?bookId=${book.book_id}"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
-            <td><a href="delete_book.html?bookId=${book.book_id}"><button type="button" class="btn btn-danger btn-xs">删除</button></a></td>
+            <td><a href="update_book.html?bookId=${book.book_id}">
+                <button type="button" class="btn btn-info btn-xs">编辑</button>
+            </a></td>
+            <td><a href="delete_book.html?bookId=${book.book_id}">
+                <button type="button" class="btn btn-danger btn-xs">删除</button>
+            </a></td>
         </tr>
     </c:forEach>
     </tbody>

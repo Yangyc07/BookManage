@@ -6,18 +6,18 @@ import java.util.Date;
 
 //图书信息
 public class Book {
-        private long book_id;//图书号
-        private String name;//书名
-        private String author;//作者
-        private String publish;//出版社
-        private String isbn;//isbn号
-        private String introduction;//简介
-        private String language;//语言
-        private BigDecimal price;//价格
-        private Date pudate;//出版日期
-        private int class_id;//类别
-        private int pressmark;//书架号码
-        private int state;//等级
+    private long book_id;//图书号
+    private String name;//书名
+    private String author;//作者
+    private String publish;//出版社
+    private String isbn;//isbn号
+    private String introduction;//简介
+    private String language;//语言
+    private BigDecimal price;//价格
+    private Date pudate;//出版日期
+    private int class_id;//类别
+    private int pressmark;//书架号码
+    private int state;//等级
 
     public long getBook_id() {
         return book_id;

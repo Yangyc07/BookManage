@@ -7,6 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,71 +19,30 @@
     <link href="Login.css" rel="stylesheet">
     <script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
     <script src="http://apps.bdimg.com/libs/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-
-    <style>
-        body{
-            background-color: #4dff78;
-            text-align: center;
-        }
-
-        .form-inline{
-            padding-right: 15px;
-            padding-left: 15px;
-            margin-left: auto;
-            margin-right: auto;
-            height: 720px;
+    <style type="text/css">
+        .form-signin{
             max-width: 330px;
-            padding-top: 50px;
-        }
-        .form-inline input{
-            margin-bottom: 8px;
-            outline: none;
-            padding: 10px;
-            font-size: 10px;
-            color: #fff;
-            border-radius: 4px;
-            background-color: #2D2D3F;
-        }
-        .form-inline .form-control{
-            position: relative;
-            height: auto;
-            padding: 10px;
-            font-size: 16px;
-            width: 300px;
-        }
-        .btn{
-            width: 300px;
-            min-height: 40px;
-            display: block;
-            background-color: #4a77d4;
-            border: 1px solid #3762bc;
-            color: #fff;
-            padding: 10px 16px;
-            font-size: 18px;
-            line-height: normal;
-            border-radius: 6px;
-            margin: 0;
-            text-decoration: none;
-            text-align: center;
+            padding: 15px;
+            margin: 0 auto;
+            background: #29d1b0;
         }
 
-        .checkbox{
-            margin-left: -160px;
-            font-size: 18px;
-            color: #FFE4E1;
-        }
     </style>
 </head>
 <body>
-<form action="<c:url value="loginCheck.html"/>" method="post">
-    用户名：
-    <input type="text" name="id">
-    <br>
-    密 码：
-    <input type="password" name="password">
-    <br>
-    <input type="submit" value="登录" />
-    <input type="reset" value="重置" />
-</form>
+<div class="container">
+    <form action="loginCheck.html" class="form-signin" method="post">
+        <h2 class="form-signin-heading">登陆</h2>
+        <label  for="inputId">账号</label>
+        <input type="text" name="id" id="inputId" placeholder="请输入账号" class="form-control">
+        <label  for="Password">密码</label>
+        <input type="password" name="password" id="Password" placeholder="请输入密码" class="form-control">
+        <div class="check-box">
+            <input value="remember-me" type="checkbox">
+            remember me
+        </div>
+        <button class="btn btn-lg btn-primary btn-block" type="submit">sign in</button>
+    </form>
+</div>
 </body>
 </html>

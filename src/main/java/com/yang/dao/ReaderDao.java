@@ -20,29 +20,29 @@ public class ReaderDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
-    private final static String ADD_READER_INFO_SQL="INSERT INTO reader_info Values(?,?,?,?,?,?)";
-    private final static String DELETE_READER_INFO_SQL="DELETE FROM reader_info WHERE reader_id = ?";
-    private final static String GET_READER_INFO_SQL="SELECT *FROM reader_info WHERE reader_id = ?";
-    private final static String GET_ALL_READER_INFO_SQL="SELECT *FROM reader_info";
+    private final static String ADD_READER_INFO_SQL = "INSERT INTO reader_info Values(?,?,?,?,?,?)";
+    private final static String DELETE_READER_INFO_SQL = "DELETE FROM reader_info WHERE reader_id = ?";
+    private final static String GET_READER_INFO_SQL = "SELECT *FROM reader_info WHERE reader_id = ?";
+    private final static String GET_ALL_READER_INFO_SQL = "SELECT *FROM reader_info";
 
 
-    public  int addReaderInfo(ReaderInfo readerInfo){
+    public int addReaderInfo(ReaderInfo readerInfo) {
         int readerId = readerInfo.getReaderId();
         String name = readerInfo.getName();
         String sex = readerInfo.getSex();
         String address = readerInfo.getAddress();
         String telCode = readerInfo.getTelcode();
-        Date   birth = readerInfo.getBirth();
+        Date birth = readerInfo.getBirth();
 
-        return jdbcTemplate.update(ADD_READER_INFO_SQL,new Object[]{readerId,name,sex,birth,address,telCode});
+        return jdbcTemplate.update(ADD_READER_INFO_SQL, new Object[]{readerId, name, sex, birth, address, telCode});
     }
 
-    public int deleteReaderInfo(int readerId){
-        return jdbcTemplate.update(DELETE_READER_INFO_SQL,readerId);
+    public int deleteReaderInfo(int readerId) {
+        return jdbcTemplate.update(DELETE_READER_INFO_SQL, readerId);
     }
 
-    public ReaderInfo findReaderInfoByReaderId(final int readerId){
-        final ReaderInfo reader=new ReaderInfo();
+    public ReaderInfo findReaderInfoByReaderId(final int readerId) {
+        final ReaderInfo reader = new ReaderInfo();
         jdbcTemplate.query(GET_READER_INFO_SQL, new Object[]{readerId}, new RowCallbackHandler() {
             public void processRow(ResultSet resultSet) throws SQLException {
                 reader.setReaderId(resultSet.getInt("reader_id"));
@@ -53,16 +53,16 @@ public class ReaderDao {
                 reader.setBirth(resultSet.getDate("birth"));
             }
         });
-        return  reader;
+        return reader;
     }
 
-    public ArrayList<ReaderInfo> getAllReaderInfo(){
-        final ArrayList<ReaderInfo> readers=new ArrayList<ReaderInfo>();
+    public ArrayList<ReaderInfo> getAllReaderInfo() {
+        final ArrayList<ReaderInfo> readers = new ArrayList<ReaderInfo>();
         jdbcTemplate.query(GET_ALL_READER_INFO_SQL, new RowCallbackHandler() {
             public void processRow(ResultSet resultSet) throws SQLException {
                 resultSet.beforeFirst();
-                while (resultSet.next()){
-                    ReaderInfo reader=new ReaderInfo();
+                while (resultSet.next()) {
+                    ReaderInfo reader = new ReaderInfo();
                     reader.setReaderId(resultSet.getInt("reader_id"));
                     reader.setName(resultSet.getString("name"));
                     reader.setSex(resultSet.getString("sex"));
@@ -73,6 +73,6 @@ public class ReaderDao {
                 }
             }
         });
-        return  readers;
+        return readers;
     }
 }

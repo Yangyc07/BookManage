@@ -16,19 +16,19 @@ public class BookService {
         this.bookDao = bookDao;
     }
 
-    public boolean addBoook(Book book){
-        return bookDao.addBook(book)>0;
+    public boolean addBoook(Book book) {
+        return bookDao.addBook(book) > 0;
     }
 
-    public boolean deleteBook(Long bookId){
-        return  bookDao.deleteBook(bookId)>0;
+    public boolean deleteBook(Long bookId) {
+        return bookDao.deleteBook(bookId) > 0;
     }
 
-    public ArrayList<Book> queryBook(String searchWord){
-        return  bookDao.queryBook(searchWord);
+    public ArrayList<Book> queryBook(String searchWord) {
+        return bookDao.queryBook(searchWord);
     }
 
-    public ArrayList<Book> getAllBooks(){
+    public ArrayList<Book> getAllBooks() {
         return bookDao.getAllBooks();
     }
 }

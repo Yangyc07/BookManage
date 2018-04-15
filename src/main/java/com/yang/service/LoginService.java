@@ -14,8 +14,8 @@ public class LoginService {
         return matchCount > 0;
     }
 
-    public boolean rePassword(int admin_id , String password){
-        return adminDao.rePassword(admin_id , password)>0;
+    public boolean rePassword(int admin_id, String password) {
+        return adminDao.rePassword(admin_id, password) > 0;
     }
 
     @Autowired

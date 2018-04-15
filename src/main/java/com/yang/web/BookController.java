@@ -14,6 +14,7 @@ import java.util.ArrayList;
 @Controller
 public class BookController {
     private BookService bookService;
+
     @Autowired
 
     public void setBookService(BookService bookService) {
@@ -21,22 +22,22 @@ public class BookController {
     }
 
     @RequestMapping("all_books")
-    public ModelAndView getAllBooks(){
-        ArrayList<Book> books=bookService.getAllBooks();
+    public ModelAndView getAllBooks() {
+        ArrayList<Book> books = bookService.getAllBooks();
         ModelAndView modelAndView = new ModelAndView("admin_all_books");
-        modelAndView.addObject("books",books);
+        modelAndView.addObject("books", books);
         return modelAndView;
     }
+
     @RequestMapping("delete_book")
-    public String deleteBook(HttpServletRequest request, RedirectAttributes redirectAttributes){
-        Long bookId=Long.parseLong(request.getParameter("bookId"));
-        boolean success=bookService.deleteBook(bookId);
-        if(success){
-            redirectAttributes.addFlashAttribute("success","成功删除图书");
+    public String deleteBook(HttpServletRequest request, RedirectAttributes redirectAttributes) {
+        Long bookId = Long.parseLong(request.getParameter("bookId"));
+        boolean success = bookService.deleteBook(bookId);
+        if (success) {
+            redirectAttributes.addFlashAttribute("success", "成功删除图书");
             return "redirect:/all_books.html";
-        }
-        else{
-            redirectAttributes.addFlashAttribute("success","删除图书失败");
+        } else {
+            redirectAttributes.addFlashAttribute("success", "删除图书失败");
             return "redirect:/all_books.html";
         }
     }

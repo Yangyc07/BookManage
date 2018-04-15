@@ -7,7 +7,7 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@include file="admin_manage.jsp"%>
+<%@include file="admin_manage.jsp" %>
 <html>
 <head>
     <title>全部读者</title>
@@ -22,7 +22,7 @@
             ${b2}
     </div>
 </c:if>
-<table class="table  table-hover" >
+<table class="table  table-hover">
     <thead>
     <tr>
         <th>读者号</th>
@@ -44,8 +44,12 @@
             <td>${reader.birth}</td>
             <td>${reader.address}</td>
             <td>${reader.telcode}</td>
-            <td><a href="admin_edit_reader.html?readerId=${reader.readerId}"><button type="button" class="btn btn-info btn-xs">编辑</button></a></td>
-            <td><a href="reader_delete.html?readerId=${reader.readerId}"><button type="button" class="btn btn-info btn-xs">删除</button></a></td>
+            <td><a href="admin_edit_reader.html?readerId=${reader.readerId}">
+                <button type="button" class="btn btn-info btn-xs">编辑</button>
+            </a></td>
+            <td><a href="reader_delete.html?readerId=${reader.readerId}">
+                <button type="button" class="btn btn-info btn-xs">删除</button>
+            </a></td>
         </tr>
     </c:forEach>
     </tbody>

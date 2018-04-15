@@ -32,8 +32,8 @@ public class AdminService extends AbstractTransactionalTestNGSpringContextTests 
     }
     @Test
     public void testLend() {
-        boolean b1=lendService.returnBook(50000004);
-        assertTrue(b1);
+        boolean b1=lendService.returnBook(10000001);
+        System.out.print(b1);
     }
 
     @Test

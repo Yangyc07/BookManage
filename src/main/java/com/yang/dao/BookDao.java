@@ -22,39 +22,39 @@ public class BookDao {
     }
 
 
-    private final static String ADD_BOOK_SQL="INSERT INTO book_info VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
-    private final static String DELETE_BOOK_SQL= "DELETE FROM  book_info WHERE book_id = ?";
-    private final static String QUERY_BOOK_SQL="SELECT * FROM book_info WHERE book_id like  ?  or name like ?";
-    private final static String QUERY_ALL_BOOKS_SQL="SELECT * FROM book_info ";
+    private final static String ADD_BOOK_SQL = "INSERT INTO book_info VALUES(?,?,?,?,?,?,?,?,?,?,?,?)";
+    private final static String DELETE_BOOK_SQL = "DELETE FROM  book_info WHERE book_id = ?";
+    private final static String QUERY_BOOK_SQL = "SELECT * FROM book_info WHERE book_id like  ?  or name like ?";
+    private final static String QUERY_ALL_BOOKS_SQL = "SELECT * FROM book_info ";
 
-    public int addBook(Book book){
-        String name=book.getName();
-        String author=book.getAuthor();
-        String publish=book.getPublish();
-        String isbn=book.getIsbn();
-        String introduction=book.getIntroduction();
-        String language=book.getLanguage();
-        BigDecimal price=book.getPrice();
-        Date pubdate=book.getPudate();
-        int classId=book.getClass_id();
-        int pressmark=book.getPressmark();
-        int state=book.getState();
+    public int addBook(Book book) {
+        String name = book.getName();
+        String author = book.getAuthor();
+        String publish = book.getPublish();
+        String isbn = book.getIsbn();
+        String introduction = book.getIntroduction();
+        String language = book.getLanguage();
+        BigDecimal price = book.getPrice();
+        Date pubdate = book.getPudate();
+        int classId = book.getClass_id();
+        int pressmark = book.getPressmark();
+        int state = book.getState();
 
-        return jdbcTemplate.update(ADD_BOOK_SQL,book);
+        return jdbcTemplate.update(ADD_BOOK_SQL, book);
     }
 
-    public int deleteBook(long bookId){
-        return jdbcTemplate.update(DELETE_BOOK_SQL,bookId);
+    public int deleteBook(long bookId) {
+        return jdbcTemplate.update(DELETE_BOOK_SQL, bookId);
     }
 
-    public ArrayList<Book> queryBook(String sw){
-        String swcx="%"+sw+"%";
-        final ArrayList<Book> books=new ArrayList<Book>();
-        jdbcTemplate.query(QUERY_BOOK_SQL, new Object[]{swcx,swcx}, new RowCallbackHandler() {
+    public ArrayList<Book> queryBook(String sw) {
+        String swcx = "%" + sw + "%";
+        final ArrayList<Book> books = new ArrayList<Book>();
+        jdbcTemplate.query(QUERY_BOOK_SQL, new Object[]{swcx, swcx}, new RowCallbackHandler() {
             public void processRow(ResultSet resultSet) throws SQLException {
                 resultSet.beforeFirst();
-                while (resultSet.next()){
-                    Book book =new Book();
+                while (resultSet.next()) {
+                    Book book = new Book();
                     book.setAuthor(resultSet.getString("author"));
                     book.setBook_id(resultSet.getLong("book_id"));
                     book.setClass_id(resultSet.getInt("class_id"));
@@ -75,14 +75,14 @@ public class BookDao {
         return books;
     }
 
-    public ArrayList<Book> getAllBooks(){
-        final ArrayList<Book> books=new ArrayList<Book>();
+    public ArrayList<Book> getAllBooks() {
+        final ArrayList<Book> books = new ArrayList<Book>();
 
         jdbcTemplate.query(QUERY_ALL_BOOKS_SQL, new RowCallbackHandler() {
             public void processRow(ResultSet resultSet) throws SQLException {
                 resultSet.beforeFirst();
-                while (resultSet.next()){
-                    Book book =new Book();
+                while (resultSet.next()) {
+                    Book book = new Book();
                     book.setPrice(resultSet.getBigDecimal("price"));
                     book.setState(resultSet.getInt("state"));
                     book.setPublish(resultSet.getString("publish"));
