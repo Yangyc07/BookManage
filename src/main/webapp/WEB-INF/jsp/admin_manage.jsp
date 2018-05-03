@@ -51,7 +51,7 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="login.html"><span
                             class="glyphicon glyphicon-user"></span>&nbsp;${admin.adminId}，已登录</a></li>
-                    <li><a href="logout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
+                    <li><a href="layout.html"><span class="glyphicon glyphicon-log-in"></span>&nbsp;退出</a></li>
                 </ul>
             </div>
         </div>
