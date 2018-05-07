@@ -1,4 +1,8 @@
 # BookManage
+
+按照这个项目进行实现
+https://github.com/withstars/Books-Management-System
+
 图书管理
 
 2018 4.2
@@ -18,3 +22,7 @@
 
 2018 4.12
 增加了所有图书的界面，以及删除图书。
+
+2018 4.15
+实现管理员功能
+
